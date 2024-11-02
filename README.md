@@ -7,4 +7,4 @@ How to Make a Move:
 
 Note: All standard chess rules such as castling or en passant apply and work. 
 
-For now game does not end when king is checkmated.
+For now, the game does not end when the king is checkmated, there is insufficient material for checkmate, or a stalemate occurs.

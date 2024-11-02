@@ -1,4 +1,4 @@
-How to start game:
+How to start the game:
   - make sure every file is in the same folder called "chess".
   - run chess.java.
 

@@ -1,5 +1,5 @@
 How to start game:
-  - put every file in the same directory and run chess.java.
+  - put every file in the directory "chess" and run chess.java.
 
 White piece's are capital letters at the bottom.
 Black piece's are lower case letters at the top.

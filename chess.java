@@ -1,4 +1,4 @@
-package PROJEKTY.chess;
+package chess;
 
 public class chess {
      public static void main(String[] args){

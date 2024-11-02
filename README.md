@@ -2,7 +2,7 @@ How to start game:
   - make sure every file is in the same folder called "chess".
   - run chess.java.
 
-White piece's are capital letters at the bottom.
+White piece's are capital letters at the bottom.<br/>
 Black piece's are lower case letters at the top.
 
 How to Make a Move:

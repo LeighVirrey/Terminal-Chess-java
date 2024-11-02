@@ -1,4 +1,4 @@
-package PROJEKTY.chess;
+package chess;
 import java.util.Scanner;
 
 public class game {

@@ -17,7 +17,7 @@ public class checkMoves{
 
         if((isWhiteTurn == false && temp[trueCoordinates] == 'p') || (isWhiteTurn == true && temp[trueCoordinates] == 'P')){
             if(Pawn(trueCoordinates, trueMoveCoordinates, temp) == true){
-                if(temp[trueCoordinates] == 'p' && trueMoveCoordinates <= 7){   //PROMOCJA PIONA
+                if(temp[trueCoordinates] == 'P' && trueMoveCoordinates <= 7){   //PROMOCJA PIONA
                     System.out.println("Promote to: ");
                     promotion = scanner.next().charAt(0);
                     if(Character.isUpperCase(promotion)){

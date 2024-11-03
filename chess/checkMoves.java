@@ -31,7 +31,7 @@ public class checkMoves{
                         clearBlackEnPassant();
                         return true;
                     }
-                }else if(temp[trueCoordinates] == 'P' && trueMoveCoordinates >= 56){
+                }else if(temp[trueCoordinates] == 'p' && trueMoveCoordinates >= 56){
                     System.out.println("Promote to: ");
                     promotion = scanner.next().charAt(0);
                     if(Character.isLowerCase(promotion)){

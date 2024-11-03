@@ -20,8 +20,8 @@ public class checkMoves{
                 if(temp[trueCoordinates] == 'P' && trueMoveCoordinates <= 7){   //PROMOCJA PIONA
                     System.out.println("Promote to: ");
                     promotion = scanner.next().charAt(0);
-                    if(Character.isUpperCase(promotion)){
-                        promotion = Character.toLowerCase(promotion);
+                    if(Character.isLowerCase(promotion)){
+                        promotion = Character.toUpperCase(promotion);
                     }
                     temp[trueMoveCoordinates] = promotion;
                     temp[trueCoordinates] = ' ';
@@ -34,8 +34,8 @@ public class checkMoves{
                 }else if(temp[trueCoordinates] == 'p' && trueMoveCoordinates >= 56){
                     System.out.println("Promote to: ");
                     promotion = scanner.next().charAt(0);
-                    if(Character.isLowerCase(promotion)){
-                        promotion = Character.toUpperCase(promotion);
+                    if(Character.isUpperCase(promotion)){
+                        promotion = Character.toLowerCase(promotion);
                     }
                     temp[trueMoveCoordinates] = promotion;
                     temp[trueCoordinates] = ' ';

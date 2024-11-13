@@ -24,6 +24,7 @@ public class boardRemake {
     }
 
     public static char[] setupChess960Board() {
+        //different way of making the board. Char Array of 64, fill that empty.
         char[] board = new char[64];
         for (int i = 0; i < 64; i++) {
             board[i] = ' ';
@@ -34,12 +35,47 @@ public class boardRemake {
         boolean[] used = new boolean[8];
 
         // Place bishops on different color squares
+        // This ensures the bishops are on opposite colors.
+        // This is ensured by making sure the seconds bishops position is on a bound that would be 1+ from the first bishops position. Making either even or odd.
         int b1 = rand.nextInt(4) * 2;
         int b2 = rand.nextInt(4) * 2 + 1;
         board[b1] = 'b';
         board[b2] = 'b';
         used[b1] = true;
         used[b2] = true;
+
+        // Place the rooks and king
+        // This follows the rules of castling, where the king needs to be in between the rooks.
+        //although I don't really think castling would work as the game logic doesn't account for this kind of setup.
+        int r1, r2, k;
+        boolean isKingBetweenRooks = false;
+
+        do{
+            do{
+                r1 = rand.nextInt(8);
+            }while(used[r1]);
+
+
+            do{
+                r2 = rand.nextInt(8);
+            }while(used[r2]);
+
+
+            do{
+                k = rand.nextInt(8);
+            }while(used[k]);
+
+
+            if((Math.abs(r1 - k) > 1 && Math.abs(r2 - k) > 1) && ((r1 < k && k < r2) || (r2 < k && k < r1))){
+                isKingBetweenRooks = true;
+                board[k] = 'k';
+                used[k] = true;
+                board[r2] = 'r';
+                used[r2] = true;
+                board[r1] = 'r';
+                used[r1] = true;
+            }
+        }while (!isKingBetweenRooks);
 
         // Place the queen
         int q;
@@ -63,26 +99,6 @@ public class boardRemake {
         board[n2] = 'n';
         used[n2] = true;
 
-        // Place the rooks and king
-        int r1, r2, k;
-        do {
-            r1 = rand.nextInt(8);
-        } while (used[r1]);
-        board[r1] = 'r';
-        used[r1] = true;
-
-        do {
-            r2 = rand.nextInt(8);
-        } while (used[r2]);
-        board[r2] = 'r';
-        used[r2] = true;
-
-        do {
-            k = rand.nextInt(8);
-        } while (used[k]);
-        board[k] = 'k';
-        used[k] = true;
-
         // Place pawns
         for (int i = 8; i < 16; i++) {
             board[i] = 'p';
@@ -92,6 +108,7 @@ public class boardRemake {
         }
 
         // Mirror the pieces for the white side
+        // this is a little backwards since white is supposed to be set up first and black is what mirrors it. Don't care though.
         for (int i = 0; i < 8; i++) {
             board[56 + i] = Character.toUpperCase(board[i]);
         }

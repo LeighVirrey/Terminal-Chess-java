@@ -36,14 +36,26 @@ class chessTest {
     void testChess960BoardSetup() {
         char[] board = boardRemake.setupChess960Board();
         assertEquals(64, board.length);
-        assertTrue(new String(board).contains("b"));
-        char[] regularBoard = boardRemake.setupStandardBoard();
-        assertNotEquals(new String(regularBoard), new String(board));
+        assertTrue(new String(board).contains("q"));
+    }
+
+    @Test
+    void testChess960BoardNotSame(){
+        char[] board = boardRemake.setupChess960Board();
+        char[] board2 = boardRemake.setupChess960Board();
+        assertNotEquals(new String(board), new String(board2));
+        //note: this has 1/960 chance of failing obviously
     }
 
     @Test
     void testChess960BoardKingBetweenRooks() {
         char[] board = boardRemake.setupChess960Board();
-        assertTrue(new String(board).indexOf("r") < new String(board).indexOf("b") && new String(board).indexOf("k") < new String(board).lastIndexOf("r"));
+        assertTrue(new String(board).indexOf("r") < new String(board).indexOf("k") && new String(board).indexOf("k") < new String(board).lastIndexOf("r"));
+    }
+
+    @Test
+    void testChess960BoardBishopsOnDifferentColor() {
+        char[] board = boardRemake.setupChess960Board();
+        assertTrue(new String(board).indexOf("b") % 2 != new String(board).lastIndexOf("b") % 2);
     }
 }

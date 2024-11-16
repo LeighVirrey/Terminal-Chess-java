@@ -42,7 +42,7 @@ class chessTest {
     @Test
     void testChess960BoardNotSame(){
         char[] board = boardRemake.setupChess960Board();
-        char[] board2 = boardRemake.setupChess960Board();
+        char[] board2 = boardRemake.setupStandardBoard();
         assertNotEquals(new String(board), new String(board2));
         //note: this has 1/960 chance of failing obviously
     }
